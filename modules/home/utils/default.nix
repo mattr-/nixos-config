@@ -44,3 +44,4 @@
     enable = true;
     package = pkgs.lazygit;
   };
+}
