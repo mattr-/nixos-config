@@ -26,6 +26,10 @@ in
     wlsunset
     swww
     swayosd
+    imagemagick
+    ghostscript
+    tectonic
+    mermaid-cli
   ];
 
   home.pointerCursor = {
