@@ -104,11 +104,16 @@ in
       enable = true;
       settings = {
         general = {
-          lock_cmd = "echo locking";
-          before_sleep_cmd = "echo 'going to sleep'";
-          after_sleep_cmd = "echo 'waking up from sleep'";
+          lock_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
         };
         listener = [
+          {
+            timeout = 60;
+            on-timeout = "brightnessctl -s set 10%";
+            on-resume = "brightnessctl -r";
+          }
           {
             timeout = 300;
             on-timeout = "hyprctl dispatch dpms off";
@@ -215,10 +220,10 @@ in
 
       general = {
         gaps_in = 5;
-        gaps_out = windows_space_gap;
+        gaps_out = 5;
         border_size = 2;
-        resize_on_border = false;
-        allow_tearing = false;
+        resize_on_border = true;
+        allow_tearing = true;
         layout = "dwindle";
       };
 
@@ -233,22 +238,32 @@ in
         blur = {
           enabled = true;
           size = 3;
-          passes = 1;
+          passes = 3;
+          new_optimizations = true;
           vibrancy = 0.1696;
+          ignore_opacity = true;
         };
       };
 
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+
+        bezier = [
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
+          "liner, 1, 1, 1, 1"
+        ];
 
         animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "windows, 1, 6, wind, slide"
+          "windowsIn, 1, 6, winIn, slide"
+          "windowsOut, 1, 5, winOut, slide"
+          "windowsMove, 1, 5, wind, slide"
+          "border, 1, 1, liner"
+          "borderangle, 1, 30, liner, loop"
+          "fade, 1, 10, default"
+          "workspaces, 1, 5, wind"
         ];
       };
       dwindle = {
@@ -263,6 +278,7 @@ in
       misc = {
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
+        disable_splash_rendering = true;
       };
 
       input = {
