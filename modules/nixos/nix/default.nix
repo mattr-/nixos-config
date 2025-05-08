@@ -77,4 +77,8 @@
       nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link | tail -n2)
     fi
   '';
+
+  programs.nh = {
+    enable = true;
+  };
 }
