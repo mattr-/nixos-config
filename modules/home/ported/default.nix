@@ -505,5 +505,6 @@ in
 
   programs.ssh = {
     enable = true;
+    extraConfig = "Include one_password.conf";
   };
 }
