@@ -5,9 +5,6 @@
   config,
   ...
 }:
-let
-  windows_space_gap = 10;
-in
 {
   home.packages = with pkgs; [
     gnumake
@@ -30,6 +27,8 @@ in
     ghostscript
     tectonic
     mermaid-cli
+    waybar
+    dunst
   ];
 
   home.pointerCursor = {
@@ -148,27 +147,32 @@ in
 
       input-field = [
         {
-          size = "300, 50";
-          valign = "bottom";
-          position = "0%, 10%";
-
-          outline_thickness = 1;
-
-          font_color = "rgb(211, 213, 202)";
-          outer_color = "rgba(29, 38, 33, 0.6)";
-          inner_color = "rgba(15, 18, 15, 0.1)";
-          check_color = "rgba(141, 186, 100, 0.5)";
-          fail_color = "rgba(229, 90, 79, 0.5)";
-
-          placeholder_text = "Enter Password";
-
-          dots_spacing = 0.2;
+          size = "200, 50";
+          outline_thickness = 3;
+          dots_size = 0.33;
+          dots_spacing = 0.15;
           dots_center = true;
-          dots_fade_time = 100;
-
-          shadow_color = "rgba(5, 7, 5, 0.1)";
-          shadow_size = 7;
-          shadow_passes = 2;
+          dots_rounding = -1;
+          outer_color = "rgb(a6adc8)";
+          inner_color = "rgb(11111b)";
+          font_color = "rgb(a6adc8)";
+          fade_on_empty = true;
+          fade_timeout = 1000;
+          placeholder_text = "Enter Password";
+          hide_input = false;
+          rounding = -1;
+          check_color = "rgb(204,136,34)";
+          fail_color = "rgb(204,34,34)";
+          fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+          fail_transition = 100;
+          capslock_color = -1;
+          numlock_color = -1;
+          bothlock_color = -1;
+          invert_numlock = false;
+          swap_font_color = false;
+          position = "0, -20";
+          halign = "center";
+          valign = "center";
         }
       ];
 
@@ -177,19 +181,23 @@ in
           text = ''
             cmd[update:1000] echo "<span font-weight='light' >$(date +'%H %M %S')</span>"
           '';
-          font_size = 300;
-
-          color = "rgb(8a9e6b)";
-
-          position = "0%, 2%";
-
-          valign = "center";
-          halign = "center";
-
-          shadow_color = "rgba(5, 7, 5, 0.1)";
-          shadow_size = 20;
-          shadow_passes = 2;
-          shadow_boost = 0.3;
+          color = "rgb(a6adc8)";
+          font_size = 55;
+          position = "-100, 40";
+          halign = "right";
+          valign = "bottom";
+          shadow_passes = 5;
+          shadow_size = 10;
+        }
+        {
+          text = "Hello";
+          color = "rgba(a6adc8)";
+          font_size = 20;
+          position = "-100, 160";
+          halign = "right";
+          valign = "bottom";
+          shadow_passes = 5;
+          shadow_size = 10;
         }
       ];
     };
@@ -204,7 +212,10 @@ in
         "1password --silent"
         "$terminal"
         "waybar"
+        "dunst"
         "swayosd-server"
+        "swww-daemon"
+        "swww img ~/.local/share/hyprland/wallhaven-gpe92e.png"
       ];
 
       "env" = [
@@ -214,6 +225,7 @@ in
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
+
       debug = {
         disable_logs = false;
       };
@@ -266,6 +278,7 @@ in
           "workspaces, 1, 5, wind"
         ];
       };
+
       dwindle = {
         pseudotile = true;
         preserve_split = true;
@@ -393,117 +406,6 @@ in
     };
   };
 
-  programs.waybar = {
-    enable = true;
-    style = ''
-      * {
-        color: #eeeeee;
-        font-weight: bold;
-        font-size: 12px;
-      }
-
-      window#waybar {
-        background-color: rgba(0,0,0,0);
-      }
-
-      #waybar > box {
-        margin: 5px ${builtins.toString windows_space_gap}px 0px;
-        background-color: rgb(100,100,100);
-        border: 2px solid rgb(150,150,150);
-      }
-
-      #workspaces,
-      #window,
-      #idle_inhibitor,
-      #wireplumber,
-      #network,
-      #cpu,
-      #memory,
-      #clock,
-      #tray,
-      #waybar > box {
-        border-radius: 12px;
-      }
-
-      #idle_inhibitor,
-      #wireplumber,
-      #network,
-      #cpu,
-      #memory,
-      #battery,
-      #clock,
-      #power-profiles-daemon,
-      #tray {
-        padding: 0 5px;
-      }
-    '';
-
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        spacing = 4;
-         modules-left = [
-          "hyprland/workspaces"
-          "hyprland/window"
-        ];
-        modules-center = [
-          "clock"
-        ];
-        modules-right = [
-          "idle_inhibitor"
-          "wireplumber"
-          "network"
-          "bluetooth"
-          "battery"
-          "power-profiles-daemon"
-          "tray"
-        ];
-
-        "hyprland/workspaces" = {
-          disable-scroll = true;
-          all-outputs = true;
-          warp-on-scroll = false;
-          format = "{name}: {icon}";
-          format-icons = {
-            "urgent" = "";
-            "active" = "";
-            "default" = "";
-          };
-        };
-
-        idle_inhibitor = {
-          format = "Idle: {icon} ";
-          format-icons = {
-            "deactivated" = "";
-            "activated" = "";
-          };
-        };
-
-        wireplumber = {
-          format = "Volume: {icon}  {volume}% ";
-          format-icons = ["" "" ""];
-          format-muted = "Muted ";
-        };
-
-        clock = {
-          format = "  {:%H:%M}";
-        };
-
-        power-profiles-daemon = {
-          format = "Profile: {icon} ";
-          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
-          tooltip = true;
-          format-icons = {
-            default = "";
-            performance = "";
-            balanced = "";
-            power-saver = "";
-          };
-        };
-      };
-    };
-  };
 
   programs.gpg = {
     enable = true;
