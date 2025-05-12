@@ -29,6 +29,8 @@
     mermaid-cli
     waybar
     dunst
+    wl-clipboard
+    cliphist
   ];
 
   home.pointerCursor = {
