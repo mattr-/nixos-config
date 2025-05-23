@@ -31,6 +31,7 @@
     dunst
     wl-clipboard
     cliphist
+    anki
   ];
 
   home.pointerCursor = {
