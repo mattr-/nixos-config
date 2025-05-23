@@ -37,6 +37,7 @@ in
     curl
     git
     ghostty.terminfo
+    steam-devices-udev-rules
   ];
 
   boot.kernel.sysctl = {
