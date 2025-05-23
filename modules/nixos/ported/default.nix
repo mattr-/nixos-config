@@ -172,13 +172,21 @@ in
 
   services.flatpak.enable = true;
 
-  services.greetd = {
+  services.greetd = let
+    tuigreet_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd Hyprland";
+      user = "greeter";
+    };
+    niri_session = {
+      command = "${pkgs.niri}/bin/niri-session";
+      user = "mattr-";
+    };
+  in
+  {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd Hyprland";
-        user = "greeter";
-      };
+      default_session = tuigreet_session;
+      initial_session = tuigreet_session;
     };
   };
 
