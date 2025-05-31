@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./niri
+  ];
   home.packages = with pkgs; [
     cliphist
     dunst
