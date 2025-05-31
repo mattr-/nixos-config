@@ -19,18 +19,10 @@
     nerd-fonts.symbols-only
     hyprshot
     brightnessctl
-    wl-clipboard
-    wlsunset
-    swww
-    swayosd
     imagemagick
     ghostscript
     tectonic
     mermaid-cli
-    waybar
-    dunst
-    wl-clipboard
-    cliphist
     anki
   ];
 

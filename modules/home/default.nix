@@ -4,4 +4,5 @@
   home = ./home.nix;
   gtk = ./gtk;
   ported = ./ported;
+  wayland = ./wayland;
 }
