@@ -23,6 +23,13 @@
 
     # Hardware support
     hardware.url = "github:NixOS/nixos-hardware";
+
+    # Niri
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, ... }:
