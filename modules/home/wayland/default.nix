@@ -2,6 +2,7 @@
 {
   imports = [
     ./hyprland.nix
+    ./niri
   ];
   home.packages = with pkgs; [
     cliphist
