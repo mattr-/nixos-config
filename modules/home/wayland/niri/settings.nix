@@ -44,7 +44,7 @@ in {
           tap-button-map = "left-right-middle";
           middle-emulation = true;
           accel-profile = "adaptive";
-          # scroll-factor = 0.2;
+          scroll-factor = 0.2;
         };
         focus-follows-mouse.enable = true;
         warp-mouse-to-focus = true;
