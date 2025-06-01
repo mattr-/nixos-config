@@ -30,7 +30,10 @@ in {
         (makeCommand "wl-paste --type text --watch cliphist store")
       ];
       input = {
-        # keyboard.xkb.layout = "latam";
+        keyboard = {
+          repeat-delay = 250;
+          repeat-rate = 60;
+        };
         touchpad = {
           click-method = "button-areas";
           dwt = true;
