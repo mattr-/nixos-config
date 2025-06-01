@@ -24,7 +24,7 @@ in {
       };
       spawn-at-startup = [
         (makeCommand "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")
-        # (makeCommand "hyprlock")
+        (makeCommand "hyprlock")
         (makeCommand "swww-daemon")
         (makeCommand "wl-paste --type image --watch cliphist store")
         (makeCommand "wl-paste --type text --watch cliphist store")
