@@ -182,12 +182,16 @@ in
       command = "${pkgs.niri}/bin/niri-session";
       user = "mattr-";
     };
+    gtkgreet_session = {
+      command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet}/bin/gtkgreet";
+      user = "greeter";
+    };
   in
   {
     enable = true;
     settings = {
-      default_session = tuigreet_session;
-      initial_session = tuigreet_session;
+      default_session = gtkgreet_session;
+      initial_session = gtkgreet_session;
     };
   };
 
