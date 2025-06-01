@@ -46,12 +46,54 @@ in {
           accel-profile = "adaptive";
           scroll-factor = 0.2;
         };
+        mouse = {
+          scroll-factor = 0.2;
+        };
         focus-follows-mouse.enable = true;
         warp-mouse-to-focus = true;
         workspace-auto-back-and-forth = true;
       };
       # screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
-      # outputs = {
+      outputs = {
+        "Acer Technologies XV275K P3 1404006D94HA1" = {
+          scale = 2.0;
+          position = {
+            x = 1920;
+            y = 0;
+          };
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = null;
+          };
+          variable-refresh-rate = "on-demand";
+        };
+        "Acer Technologies XV275K P3 14040084D4HA1" = {
+          scale = 2.0;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = null;
+          };
+          variable-refresh-rate = "on-demand";
+        };
+        "Acer Technologies XV275K P3 1404009444HA1" = {
+          scale = 2.0;
+          position = {
+            x = 1920;
+            y = 0;
+          };
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = null;
+          };
+          variable-refresh-rate = "on-demand";
+        };
       #   "eDP-1" = {
       #     scale = 1.0;
       #     position = {
@@ -71,7 +113,7 @@ in {
       #       y = -1080;
       #     };
       #   };
-      # };
+      };
       cursor = {
         size = 20;
         theme = "${pointer.name}";
