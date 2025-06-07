@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./hyprland.nix
-  ];
   home.packages = with pkgs; [
     cliphist
     dunst
@@ -10,7 +7,11 @@
     swww
     waybar
     wev
+    wofi
     wl-clipboard
     wlsunset
+    hyprland
+    hypridle
+    hyprlock
   ];
 }
