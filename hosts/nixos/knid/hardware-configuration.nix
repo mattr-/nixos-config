@@ -14,6 +14,31 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [
+    # Valve says:
+    #
+    # We set amdgpu.lockup_timeout in order to control the TDR for each ring
+    # 0 (GFX): 5s (was 10s)
+    # 1 (Compute): 10s (was 60s wtf)
+    # 2 (SDMA): 10s (was 10s)
+    # 3 (Video): 5s (was 10s)
+
+    # ttm.pages_min is set to 8GB in units of page size (4096), which is min
+    # required for decent gaming performance.
+    # amdgpu.sched_hw_submission is set to 4 to avoid bubbles of lack-of work
+    # with the default (2).
+    # 4 is the maximum that is supported across RDNA2 + RDNA3.
+    # Any more results in a hang at startup on RDNA3.
+    "log_buf_len=4M"
+    "amd_iommu=off"
+    "amdgpu.lockup_timeout=5000,10000,10000,5000"
+    "ttm.pages_min=2097152"
+    "amdgpu.sched_hw_submission=4"
+    "audit=0"
+
+    # These are mine so we can get a nice splash screen thing going
+    "quiet"
+  ];
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
