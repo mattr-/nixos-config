@@ -263,7 +263,7 @@ in
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-bin;
+    package = pkgs.firefox;
   };
 
   fonts = {
