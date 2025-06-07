@@ -190,8 +190,8 @@ in
   {
     enable = true;
     settings = {
-      default_session = gtkgreet_session;
-      initial_session = gtkgreet_session;
+      default_session = tuigreet_session;
+      initial_session = tuigreet_session;
     };
   };
 
