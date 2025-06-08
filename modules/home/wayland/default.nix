@@ -10,8 +10,5 @@
     wofi
     wl-clipboard
     wlsunset
-    hyprland
-    hypridle
-    hyprlock
   ];
 }
