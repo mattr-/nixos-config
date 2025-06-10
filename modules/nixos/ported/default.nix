@@ -330,4 +330,18 @@ in
       pkgs.xdg-desktop-portal-gtk
     ];
   };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "overload(control, esc)";
+          };
+        };
+      };
+    };
+  };
 }
