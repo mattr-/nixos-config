@@ -2,6 +2,7 @@
   boot = ./boot;
   nix = ./nix;
   users = ./users;
+  gnome = ./gnome;
   home-manager = ./home-manager;
   network = ./network;
   wayland = ./wayland;
