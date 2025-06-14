@@ -40,7 +40,6 @@ in
     steam-devices-udev-rules
     spotify
     discord
-    signal-desktop
   ];
 
   boot.kernel.sysctl = {
