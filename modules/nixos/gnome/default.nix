@@ -3,6 +3,9 @@
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
 
-  environment.systemPackages = [ pkgs.gnomeExtensions.appindicator ];
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    gnomeExtensions.paperwm
+  ];
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 }
