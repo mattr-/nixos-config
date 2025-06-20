@@ -8,4 +8,5 @@
     gnomeExtensions.paperwm
   ];
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
+  services.gnome.gcr-ssh-agent.enable = false;
 }
