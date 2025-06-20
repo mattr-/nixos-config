@@ -7,4 +7,5 @@
   network = ./network;
   wayland = ./wayland;
   ported = ./ported;
+  games = ./games;
 }
