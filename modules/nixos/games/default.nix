@@ -6,4 +6,8 @@
     capSysAdmin = true;
     openFirewall = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    moonlight-qt
+  ];
 }
