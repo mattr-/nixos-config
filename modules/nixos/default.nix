@@ -8,4 +8,5 @@
   wayland = ./wayland;
   ported = ./ported;
   games = ./games;
+  utils = ./utils;
 }
