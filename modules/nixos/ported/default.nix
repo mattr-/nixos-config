@@ -342,6 +342,9 @@ in
           main = {
             capslock = "overload(control, esc)";
           };
+          global = {
+            overload_tap_timeout = 250;
+          };
         };
       };
     };
