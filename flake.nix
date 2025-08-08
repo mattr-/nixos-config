@@ -39,6 +39,7 @@
 
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         # packages.default = pkgs.hello;
+        formatter = pkgs.nixfmt-tree;
       };
       flake = {
         # The usual flake attributes can be defined here, including system-
