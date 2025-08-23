@@ -277,6 +277,11 @@ in
 
       # nerdfonts
       nerd-fonts.symbols-only
+
+      # fancy UI fonts for things
+      material-symbols
+      inter
+      fira-code
     ];
 
     enableDefaultPackages = false;
