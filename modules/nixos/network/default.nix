@@ -12,6 +12,4 @@
       dnsovertls = "opportunistic";
     };
   };
-
-  programs.nm-applet.enable = true;
 }
