@@ -8,6 +8,9 @@
 
   environment.systemPackages = with pkgs; [
     quickshell
+    matugen
+    ddcutil
+    khal
   ];
 
   security = {
