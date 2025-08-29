@@ -40,6 +40,7 @@ in
     steam-devices-udev-rules
     spotify
     discord
+    mangohud
   ];
 
   boot.kernel.sysctl = {
@@ -325,10 +326,6 @@ in
       remotePlay.openFirewall = true;
     };
   };
-
-  # environment.systemPackages = [
-  #   pkgs.mangohud
-  # ];
 
   xdg.portal = {
     enable = true;
