@@ -8,6 +8,7 @@
     gh
     luajitPackages.luarocks
     neovim
+    direnv
   ];
 
   programs.bat = {
