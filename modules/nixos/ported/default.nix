@@ -41,6 +41,7 @@ in
     spotify
     discord
     mangohud
+    obsidian
   ];
 
   boot.kernel.sysctl = {
