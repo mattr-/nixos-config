@@ -224,9 +224,13 @@ in
 
   services = {
     logind = {
-      powerKey = "suspend";
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "suspend";
+      settings = {
+        Login = {
+          HandleLidSwitchExternalPower = "suspend";
+          HandlePowerKey = "suspend";
+          HandleLidSwitch = "suspend";
+        };
+      };
     };
 
     power-profiles-daemon.enable = true;
