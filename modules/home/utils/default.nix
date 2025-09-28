@@ -9,6 +9,7 @@
     luajitPackages.luarocks
     neovim
     direnv
+    devenv
   ];
 
   programs.bat = {
