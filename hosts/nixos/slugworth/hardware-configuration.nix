@@ -42,25 +42,25 @@
   ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cfb7bdf2-936a-40ef-b96f-df6fe45f62f0";
+    { device = "/dev/disk/by-uuid/a431b8bf-b18f-4b14-b1ed-2fd3cc228215";
       fsType = "btrfs";
       options = [ "compress=zstd,subvol=root" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C242-6659";
+    { device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/cfb7bdf2-936a-40ef-b96f-df6fe45f62f0";
+    { device = "/dev/disk/by-uuid/a431b8bf-b18f-4b14-b1ed-2fd3cc228215";
       fsType = "btrfs";
       options = [ "compress=zstd,noatime,subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/cfb7bdf2-936a-40ef-b96f-df6fe45f62f0";
+    { device = "/dev/disk/by-uuid/a431b8bf-b18f-4b14-b1ed-2fd3cc228215";
       fsType = "btrfs";
       options = [ "compress=zstd,noatime,subvol=nix" ];
     };
