@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    self.homeModules.utils
+    self.homeModules.cli
     self.homeModules.gtk
     self.homeModules.home
     self.homeModules.ported

@@ -1,6 +1,6 @@
 {
   # nix = ./nix;
-  utils = ./utils;
+  cli = ./cli;
   home = ./home.nix;
   gtk = ./gtk;
   ported = ./ported;
