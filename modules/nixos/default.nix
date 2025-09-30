@@ -1,5 +1,6 @@
 {
   boot = ./boot;
+  bluetooth = ./bluetooth;
   nix = ./nix;
   users = ./users;
   gnome = ./gnome;
