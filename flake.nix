@@ -23,9 +23,12 @@
 
     # Hardware support
     hardware.url = "github:NixOS/nixos-hardware";
+
+    # Declarative Flatpak management
+    flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules

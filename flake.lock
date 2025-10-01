@@ -71,6 +71,22 @@
         "type": "github"
       }
     },
+    "flatpaks": {
+      "locked": {
+        "lastModified": 1739444422,
+        "narHash": "sha256-iAVVHi7X3kWORftY+LVbRiStRnQEob2TULWyjMS6dWg=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "5e54c3ca05a7c7d968ae1ddeabe01d2a9bc1e177",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "hardware": {
       "locked": {
         "lastModified": 1758663926,
@@ -232,6 +248,7 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
+        "flatpaks": "flatpaks",
         "hardware": "hardware",
         "home-manager": "home-manager",
         "minecraft-servers": "minecraft-servers",

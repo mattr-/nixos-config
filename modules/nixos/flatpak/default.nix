@@ -1,3 +1,13 @@
+{ self, inputs, lib, ... }:
 {
-  services.flatpak.enable = true;
+  imports = [
+    inputs.flatpaks.nixosModules.nix-flatpak
+  ];
+
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "org.signal.Signal"
+    ];
+  };
 }
