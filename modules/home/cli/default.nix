@@ -10,6 +10,7 @@
     neovim
     direnv
     devenv
+    nodejs
   ];
 
   programs.bat = {
