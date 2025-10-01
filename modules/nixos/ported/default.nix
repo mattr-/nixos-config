@@ -159,8 +159,6 @@ in
     enable = true;
   };
 
-  services.flatpak.enable = true;
-
   # services.greetd = let
   #   tuigreet_session = {
   #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --container-padding 2 --no-xsession-wrapper --cmd Hyprland";

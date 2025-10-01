@@ -3,6 +3,7 @@
   bluetooth = ./bluetooth;
   nix = ./nix;
   users = ./users;
+  flatpak = ./flatpak;
   gnome = ./gnome;
   home-manager = ./home-manager;
   network = ./network;
