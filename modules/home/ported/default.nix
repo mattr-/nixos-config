@@ -24,6 +24,7 @@
     tectonic
     mermaid-cli
     anki
+    quickshell
   ];
 
 
