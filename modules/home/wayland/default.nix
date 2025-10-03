@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.vicinae.homeManagerModules.default
+  ];
+
   home.packages = with pkgs; [
     cliphist
     dunst
@@ -11,4 +15,9 @@
     wl-clipboard
     wlsunset
   ];
+
+  services.vicinae = {
+    enable = true;
+    autoStart = true;
+  };
 }

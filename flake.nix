@@ -26,9 +26,12 @@
 
     # Declarative Flatpak management
     flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
+
+    # Vicinae - Raycast clone for Linux
+    vicinae.url = "github:vicinaehq/vicinae?ref=v0.13.4";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules
