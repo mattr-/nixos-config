@@ -11,6 +11,7 @@
     direnv
     devenv
     nodejs
+    ruby
   ];
 
   programs.bat = {
