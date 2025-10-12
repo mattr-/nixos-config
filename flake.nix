@@ -29,18 +29,6 @@
 
     # Vicinae - Raycast clone for Linux
     vicinae.url = "github:vicinaehq/vicinae?ref=v0.13.4";
-
-    # Niri
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Dank Material Shell
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
