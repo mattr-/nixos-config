@@ -25,6 +25,15 @@
       package = pkgs.whitesur-gtk-theme;
       name = "WhiteSur-dark";
     };
+
+    # Prefer dark theme for GTK3 applications
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+
+    # Prefer dark theme for GTK4 applications
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
-  xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
 }
