@@ -10,6 +10,7 @@
     neovim
     direnv
     devenv
+    mise
     nodejs
     ruby
   ];
