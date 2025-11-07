@@ -1,10 +1,10 @@
 {
   networking.hostName = "slugworth";
 
+  dots.hardware.gpu = "amd";
+
   programs.sway.enable = true;
   programs.niri.enable = true;
-
-  services.xserver.videoDrivers = ["amdgpu"];
 
   security = {
     # allow wayland lockers to unlock the screen

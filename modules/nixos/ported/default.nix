@@ -98,21 +98,6 @@ in
 
   boot.kernelModules = ["tcp_bbr"];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      libva
-      libva-vdpau-driver
-      libvdpau-va-gl
-      mesa
-    ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      libva-vdpau-driver
-      libvdpau-va-gl
-    ];
-  };
-
   systemd.user.services.telephony_client.enable = false;
 
   services.pipewire = {

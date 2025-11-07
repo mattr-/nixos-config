@@ -5,6 +5,7 @@
   users = ./users;
   flatpak = ./flatpak;
   gnome = ./gnome;
+  graphics = ./graphics;
   home-manager = ./home-manager;
   network = ./network;
   wayland = ./wayland;

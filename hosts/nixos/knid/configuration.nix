@@ -2,6 +2,8 @@
 
   networking.hostName = "knid";
 
+  dots.hardware.gpu = "amd";
+
   hardware.brillo.enable = true;
 
   programs.niri.enable = true;
