@@ -18,9 +18,6 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Modded minecraft server management
-    minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
-
     # Hardware support
     hardware.url = "github:NixOS/nixos-hardware";
 
@@ -28,7 +25,7 @@
     flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
 
     # Vicinae - Raycast clone for Linux
-    vicinae.url = "github:vicinaehq/vicinae?ref=v0.13.4";
+    vicinae.url = "github:vicinaehq/vicinae?ref=v0.15.7";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
