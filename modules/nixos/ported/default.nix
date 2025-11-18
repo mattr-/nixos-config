@@ -42,6 +42,8 @@ in
     discord
     mangohud
     obsidian
+    keybase
+    keybase-gui
   ];
 
   boot.kernel.sysctl = {
