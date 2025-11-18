@@ -25,7 +25,7 @@
     flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
 
     # Vicinae - Raycast clone for Linux
-    vicinae.url = "github:vicinaehq/vicinae?ref=v0.15.7";
+    vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.2";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
