@@ -26,6 +26,9 @@
 
     # Vicinae - Raycast clone for Linux
     vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.14";
+
+    # Modded minecraft server management
+    minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
