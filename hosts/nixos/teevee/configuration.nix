@@ -35,7 +35,7 @@ let
 in {
   imports = [inputs.minecraft-servers.module];
 
-  networking.hostName = "prodnose";
+  networking.hostName = "teevee";
 
   # Use NetworkManager for networking
   networking.networkmanager = {
