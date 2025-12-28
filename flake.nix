@@ -51,6 +51,7 @@
         # The usual flake attributes can be defined here, including system-
         # agnostic ones like nixosModule and system-enumerating ones, although
         # those are more easily expressed in perSystem.
+        lib = import ./lib { inherit (nixpkgs) lib; };
 
       };
     };
