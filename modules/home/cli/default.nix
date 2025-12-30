@@ -6,6 +6,8 @@
     gitFull
     git-lfs
     gh
+    jujutsu
+    mr
     luajitPackages.luarocks
     neovim
     direnv
