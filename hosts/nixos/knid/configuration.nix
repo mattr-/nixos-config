@@ -6,6 +6,8 @@
 
   hardware.brillo.enable = true;
 
+  virtualisation.waydroid.enable = true;
+
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [
