@@ -8,6 +8,7 @@
     inputs.hardware.nixosModules.common-cpu-intel-cpu-only
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.hardware.nixosModules.common-gpu-amd
+    inputs.disko.nixosModules.disko
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -21,38 +22,9 @@
     "quiet"
   ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e655d4f1-5651-4ac8-8e2b-a3397aaf56a1";
-      fsType = "btrfs";
-      options = [ "compress=zstd,subvol=root" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/e655d4f1-5651-4ac8-8e2b-a3397aaf56a1";
-      fsType = "btrfs";
-      options = [ "compress=zstd,noatime,subvol=home" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/e655d4f1-5651-4ac8-8e2b-a3397aaf56a1";
-      fsType = "btrfs";
-      options = [ "compress=zstd,noatime,subvol=nix" ];
-    };
-
   swapDevices = [];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
