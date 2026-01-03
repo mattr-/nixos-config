@@ -5,6 +5,7 @@
 
   programs.sway.enable = true;
   programs.niri.enable = true;
+  programs.dms-shell.enable = true;
 
   security = {
     # allow wayland lockers to unlock the screen
