@@ -29,6 +29,17 @@
 
     # Modded minecraft server management
     minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
+
+    # Quickshell from git
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+    };
+
+    # Noctalia
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:

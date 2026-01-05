@@ -15,6 +15,7 @@
     matugen
     ddcutil
     khal
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   security = {

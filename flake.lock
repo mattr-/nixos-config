@@ -246,6 +246,21 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1762977756,
+        "narHash": "sha256-4PqRErxfe+2toFJFgcRKZ0UI9NSIOJa+7RXVtBhy4KE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c5ae371f1a6a7fd27823bc500d9390b38c05fa55",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1762111121,
         "narHash": "sha256-4vhDuZ7OZaZmKKrnDpxLZZpGIJvAeMtK6FKLJYUtAdw=",
         "owner": "NixOS",
@@ -260,6 +275,44 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767416069,
+        "narHash": "sha256-VZj6kYI9I0TC1C0uMiWmiFGHtolZZ3fSB8JNggLcaWU=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "55d1cb9e03b551c44858a69de11d57f3c28e168f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1766725085,
+        "narHash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs=",
+        "owner": "quickshell-mirror",
+        "repo": "quickshell",
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quickshell-mirror",
+        "repo": "quickshell",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -269,6 +322,8 @@
         "home-manager": "home-manager",
         "minecraft-servers": "minecraft-servers",
         "nixpkgs": "nixpkgs_3",
+        "noctalia": "noctalia",
+        "quickshell": "quickshell",
         "vicinae": "vicinae"
       }
     },
@@ -289,7 +344,7 @@
     },
     "vicinae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "systems": "systems"
       },
       "locked": {
