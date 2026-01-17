@@ -1,3 +1,4 @@
+{ inputs, pkgs, ... }:
 {
   networking.hostName = "slugworth";
 
@@ -5,9 +6,16 @@
 
   programs.sway.enable = true;
   programs.niri.enable = true;
-  programs.dms-shell.enable = true;
 
   virtualisation.waydroid.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    quickshell
+    matugen
+    ddcutil
+    khal
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
   security = {
     # allow wayland lockers to unlock the screen
