@@ -40,6 +40,9 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # LLM Agents
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:

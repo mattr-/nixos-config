@@ -16,6 +16,7 @@
     ddcutil
     khal
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
   ];
 
   security = {
