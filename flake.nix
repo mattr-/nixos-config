@@ -2,38 +2,33 @@
   description = "NixOS and nix-darwin configs for mattr-";
 
   inputs = {
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+
+    # Disko for declarative disk partitioning
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    # Declarative Flatpak management
+    flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
+
+    # Hardware support
+    hardware.url = "github:NixOS/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Disko for declarative disk partitioning
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Hardware support
-    hardware.url = "github:NixOS/nixos-hardware";
-
-    # Declarative Flatpak management
-    flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
-
-    # Vicinae - Raycast clone for Linux
-    vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.14";
+    # LLM Agents
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     # Modded minecraft server management
     minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
-
-    # Quickshell from git
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell";
-    };
 
     # Noctalia
     noctalia = {
@@ -41,8 +36,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # LLM Agents
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    # Quickshell from git
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
+    };
+
+    # Vicinae - Raycast clone for Linux
+    vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.14";
   };
 
   outputs =
