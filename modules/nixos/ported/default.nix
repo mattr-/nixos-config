@@ -6,9 +6,18 @@
   ...
 }:
 let
-  lock-false = { Value = false ; Status = "locked"; };
-  lock-true = { Value = true; Status = "locked"; };
-  lock-empty-string = { Value = ""; Status = "locked"; };
+  lock-false = {
+    Value = false;
+    Status = "locked";
+  };
+  lock-true = {
+    Value = true;
+    Status = "locked";
+  };
+  lock-empty-string = {
+    Value = "";
+    Status = "locked";
+  };
 in
 {
 
@@ -96,7 +105,7 @@ in
     "net.core.default_qdisc" = "cake";
   };
 
-  boot.kernelModules = ["tcp_bbr"];
+  boot.kernelModules = [ "tcp_bbr" ];
 
   systemd.user.services.telephony_client.enable = false;
 

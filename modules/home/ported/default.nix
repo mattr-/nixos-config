@@ -27,7 +27,6 @@
     quickshell
   ];
 
-
   home.sessionVariables = {
     XDG_ICON_DIR = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur";
   };
@@ -58,7 +57,10 @@
         search = {
           force = true;
           default = "ddg";
-          order = [ "ddg" "google" ];
+          order = [
+            "ddg"
+            "google"
+          ];
         };
       };
     };

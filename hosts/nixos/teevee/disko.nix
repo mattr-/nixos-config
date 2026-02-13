@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   disko.devices = {
     disk = {
       nvme = {
@@ -21,50 +22,53 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"]; # Override existing partitions
+                extraArgs = [ "-f" ]; # Override existing partitions
                 subvolumes = {
                   "/root" = {
-                    mountOptions = ["compress=zstd"];
+                    mountOptions = [ "compress=zstd" ];
                     mountpoint = "/";
                   };
                   "/home" = {
-                    mountOptions = ["compress=zstd"];
+                    mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
                   "/nix" = {
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/nix";
                   };
                   "/mc-po3mythic" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-po3mythic";
                   };
                   "/mc-atm9sky" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-atm9sky";
                   };
                   "/mc-atm9" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-atm9";
                   };
                   "/mc-stoneblock" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-stoneblock";
                   };
                   "/mc-stoneblock2" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-stoneblock2";
                   };
                   "/mc-stoneblock3" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-stoneblock3";
                   };
                   "/mc-atm10" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-atm10";
                   };
                   "/mc-atm10tts" = {
-                    mountOptions = ["noatime"];
+                    mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-atm10tts";
                   };
                 };

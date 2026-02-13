@@ -25,20 +25,24 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        libva
-        libva-vdpau-driver
-        libvdpau-va-gl
-        mesa
-      ] ++ (
-        # GPU-specific packages
-        lib.optionals (cfg.gpu == "intel") [
-          intel-media-driver
-          intel-compute-runtime
-        ] ++ lib.optionals (cfg.gpu == "amd") [
-          rocmPackages.clr.icd
+      extraPackages =
+        with pkgs;
+        [
+          libva
+          libva-vdpau-driver
+          libvdpau-va-gl
+          mesa
         ]
-      );
+        ++ (
+          # GPU-specific packages
+          lib.optionals (cfg.gpu == "intel") [
+            intel-media-driver
+            intel-compute-runtime
+          ]
+          ++ lib.optionals (cfg.gpu == "amd") [
+            rocmPackages.clr.icd
+          ]
+        );
       extraPackages32 = with pkgs.pkgsi686Linux; [
         libva-vdpau-driver
         libvdpau-va-gl

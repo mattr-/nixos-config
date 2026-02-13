@@ -1,4 +1,10 @@
-{inputs, outputs, pkgs, ...}: {
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
+{
 
   networking.hostName = "knid";
 

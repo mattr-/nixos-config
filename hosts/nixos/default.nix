@@ -1,12 +1,18 @@
-{ inputs, self, lib, ... }:
+{
+  inputs,
+  self,
+  lib,
+  ...
+}:
 let
   # Get all subdirectories in the hosts directory
   hostAttrs = builtins.attrNames (builtins.readDir ./.);
 
   # Filter out non-directories and any special files/folders (like default.nix itself)
-  hostNames = builtins.filter (name:
-    builtins.pathExists (./. + "/${name}/default.nix") &&
-    builtins.isAttrs (builtins.readDir (./. + "/${name}"))
+  hostNames = builtins.filter (
+    name:
+    builtins.pathExists (./. + "/${name}/default.nix")
+    && builtins.isAttrs (builtins.readDir (./. + "/${name}"))
   ) hostAttrs;
 
   nixosGenerator =

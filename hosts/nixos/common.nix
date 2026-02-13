@@ -12,7 +12,6 @@ in
   virtualisation.vmVariant.virtualisation = vmMachineConfig;
   virtualisation.vmVariantWithBootLoader.virtualisation = vmMachineConfig;
 
-
   # NixOS 24.05 is the first version of NixOS ran with this config.
   # Do not change this value.
   system.stateVersion = "24.05";

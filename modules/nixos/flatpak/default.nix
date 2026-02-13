@@ -1,4 +1,9 @@
-{ self, inputs, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   imports = [
     inputs.flatpaks.nixosModules.nix-flatpak

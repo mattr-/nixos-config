@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   disko.devices = {
     disk = {
       nvme = {
@@ -14,7 +15,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountOptions = ["umask=077"];
+                mountOptions = [ "umask=077" ];
                 mountpoint = "/boot";
               };
             };
@@ -22,18 +23,21 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"]; # Override existing partitions
+                extraArgs = [ "-f" ]; # Override existing partitions
                 subvolumes = {
                   "/root" = {
-                    mountOptions = ["compress=zstd"];
+                    mountOptions = [ "compress=zstd" ];
                     mountpoint = "/";
                   };
                   "/home" = {
-                    mountOptions = ["compress=zstd"];
+                    mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
                   "/nix" = {
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/nix";
                   };
                 };

@@ -1,4 +1,11 @@
-{ inputs, pkgs, lib, self, config, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  self,
+  config,
+  ...
+}:
 {
   imports = self.lib.directoryImport ./. ++ [
     self.nixosModules.boot

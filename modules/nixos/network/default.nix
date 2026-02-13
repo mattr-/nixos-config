@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   # Use NetworkManager for networking
   networking.networkmanager = {

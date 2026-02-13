@@ -1,6 +1,11 @@
 # taken from niksingh710/ndots/hosts/home/default.nix
 # and modified by mattr-
-{ self, inputs, pkgs, ... }:
+{
+  self,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   hmGenerator =
     machine: system:

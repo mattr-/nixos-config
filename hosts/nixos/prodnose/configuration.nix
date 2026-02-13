@@ -1,4 +1,11 @@
-{inputs, outputs, pkgs, lib, config, ...}:
+{
+  inputs,
+  outputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   inherit (lib) concatStringsSep;
   rsyncSSHKeys = config.users.users.mattr-.openssh.authorizedKeys.keys;
@@ -32,8 +39,9 @@ let
     white-list = false;
     max-tick-time = 5 * 60 * 1000;
   };
-in {
-  imports = [inputs.minecraft-servers.module];
+in
+{
+  imports = [ inputs.minecraft-servers.module ];
 
   networking.hostName = "prodnose";
 
@@ -124,7 +132,7 @@ in {
     "net.core.default_qdisc" = "cake";
   };
 
-  boot.kernelModules = ["tcp_bbr"];
+  boot.kernelModules = [ "tcp_bbr" ];
 
   services.tailscale = {
     enable = true;
@@ -153,15 +161,13 @@ in {
         jvmMaxAllocation = "16G";
         jvmInitialAllocation = "4G";
         jvmPackage = jre21;
-        serverConfig =
-          serverDefaults
-          // {
-            server-port = 25567;
-            rcon-port = 25568;
-            motd = "Welcome to ATM 9!";
-            allow-flight = true;
-            extra-options.difficulty = "hard";
-            extra-options.gamemode = "survival";
+        serverConfig = serverDefaults // {
+          server-port = 25567;
+          rcon-port = 25568;
+          motd = "Welcome to ATM 9!";
+          allow-flight = true;
+          extra-options.difficulty = "hard";
+          extra-options.gamemode = "survival";
         };
       };
     };

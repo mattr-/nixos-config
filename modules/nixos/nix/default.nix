@@ -5,45 +5,48 @@
   lib,
   config,
   ...
-}: {
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      # trusted-users only works on NixOS
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
-      auto-optimise-store = lib.mkDefault true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      warn-dirty = false;
-      # Opinionated: Disable the global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
+}:
+{
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        # trusted-users only works on NixOS
+        trusted-users = [
+          "root"
+          "@wheel"
+        ];
+        auto-optimise-store = lib.mkDefault true;
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        warn-dirty = false;
+        # Opinionated: Disable the global registry
+        flake-registry = "";
+        # Workaround for https://github.com/NixOS/nix/issues/9574
+        nix-path = config.nix.nixPath;
+      };
+
+      # Opinionated: Disable channels - only on NixOS
+      channel.enable = false;
+
+      # Opinionated: Make flake registry and nix path match flake inputs
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+      # Use the latest version we can get
+      package = pkgs.nixVersions.latest;
+
+      # Automatic garbage collection
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
     };
-
-    # Opinionated: Disable channels - only on NixOS
-    channel.enable = false;
-
-    # Opinionated: Make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-
-    # Use the latest version we can get
-    package = pkgs.nixVersions.latest;
-
-    # Automatic garbage collection
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
 
   nixpkgs = {
     # Add our overlays here, disabled for now

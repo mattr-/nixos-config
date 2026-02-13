@@ -45,22 +45,45 @@
     llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, flatpaks, vicinae, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      flake-parts,
+      flatpaks,
+      vicinae,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules
         ./hosts
       ];
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        # Per-system attributes can be defined here. The self' and inputs'
-        # module parameters provide easy access to attributes of the same
-        # system.
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          # Per-system attributes can be defined here. The self' and inputs'
+          # module parameters provide easy access to attributes of the same
+          # system.
 
-        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        # packages.default = pkgs.hello;
-        formatter = pkgs.nixfmt-tree;
-      };
+          # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
+          # packages.default = pkgs.hello;
+          formatter = pkgs.nixfmt-tree;
+        };
       flake = {
         # The usual flake attributes can be defined here, including system-
         # agnostic ones like nixosModule and system-enumerating ones, although
