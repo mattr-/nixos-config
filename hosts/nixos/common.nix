@@ -1,3 +1,4 @@
+{ self, ... }:
 let
   vmMachineConfig = {
     memorySize = 8192; # 8GB of RAM
@@ -5,6 +6,8 @@ let
   };
 in
 {
+  nixpkgs.overlays = [ self.overlays.default ];
+
   # better settings for nixos-rebuild build-vm
   #
   # the defaults are very low and very minimal and that won't support the

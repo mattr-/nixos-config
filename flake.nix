@@ -76,12 +76,14 @@
           ...
         }:
         {
-          # Per-system attributes can be defined here. The self' and inputs'
-          # module parameters provide easy access to attributes of the same
-          # system.
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+            config.allowUnfree = true;
+          };
 
-          # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-          # packages.default = pkgs.hello;
+          packages.plannotator = pkgs.plannotator;
+
           formatter = pkgs.nixfmt-tree;
         };
       flake = {
@@ -90,6 +92,9 @@
         # those are more easily expressed in perSystem.
         lib = import ./lib { inherit (nixpkgs) lib; };
 
+        overlays.default = final: prev: {
+          plannotator = final.callPackage ./pkgs/plannotator { };
+        };
       };
     };
 }
