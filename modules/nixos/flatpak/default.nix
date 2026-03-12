@@ -13,6 +13,14 @@
     enable = true;
     packages = [
       "org.signal.Signal"
+      "com.microsoft.Edge" #xbox cloud gaming
     ];
+    overrides = {
+      "com.microsoft.Edge".Context = {
+        filesystems = [
+          "/run/udev:ro"
+        ];
+      };
+    };
   };
 }
