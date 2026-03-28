@@ -6,6 +6,7 @@
   flatpak = ./flatpak;
   gnome = ./gnome;
   graphics = ./graphics;
+  sddm = ./sddm;
   home-manager = ./home-manager;
   network = ./network;
   wayland = ./wayland;

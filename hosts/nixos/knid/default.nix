@@ -16,6 +16,7 @@
     self.nixosModules.bluetooth
     self.nixosModules.flatpak
     self.nixosModules.gnome
+    self.nixosModules.sddm
     self.nixosModules.wayland
     self.nixosModules.graphics
     self.nixosModules.games
