@@ -7,4 +7,5 @@
   gtk = ./gtk;
   ported = ./ported;
   wayland = ./wayland;
+  xdg = ./xdg.nix;
 }

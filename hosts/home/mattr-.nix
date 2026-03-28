@@ -14,5 +14,6 @@
     self.homeModules.home
     self.homeModules.ported
     self.homeModules.wayland
+    self.homeModules.xdg
   ];
 }

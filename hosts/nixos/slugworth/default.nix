@@ -31,6 +31,7 @@
     gnome
     gtk
     wayland
+    xdg
     ported
   ];
 }
