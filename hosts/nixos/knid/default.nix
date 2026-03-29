@@ -13,6 +13,7 @@
     self.nixosModules.users
     self.nixosModules.network
     self.nixosModules.home-manager
+    self.nixosModules.display
     self.nixosModules.bluetooth
     self.nixosModules.flatpak
     self.nixosModules.gnome
@@ -26,6 +27,7 @@
 
   hm.imports = with self.homeModules; [
     cli
+    display
     home
     go
     gnome

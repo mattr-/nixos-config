@@ -9,6 +9,7 @@
   networking.hostName = "knid";
 
   dots.hardware.gpu = "amd";
+  dots.display.scale = 2;
 
   hardware.brillo.enable = true;
 

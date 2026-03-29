@@ -3,6 +3,7 @@
   networking.hostName = "slugworth";
 
   dots.hardware.gpu = "amd";
+  dots.display.scale = 2;
 
   programs.sway.enable = true;
   programs.niri.enable = true;

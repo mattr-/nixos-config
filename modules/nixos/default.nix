@@ -5,6 +5,7 @@
   users = ./users;
   flatpak = ./flatpak;
   gnome = ./gnome;
+  display = ./display;
   graphics = ./graphics;
   sddm = ./sddm;
   home-manager = ./home-manager;
