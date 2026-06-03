@@ -189,6 +189,24 @@ in
           extra-options.gamemode = "survival";
         };
       };
+
+      start-theta-1 = {
+        enable = true;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "10G";
+        jvmInitialAllocation = "4G";
+        jvmPackage = jre17;
+        serverConfig = serverDefaults // {
+          server-port = 25569;
+          rcon-port = 25570;
+          motd = "Star Technology - Theta 1";
+          allow-flight = true;
+          pvp = true;
+          extra-options.level-type = "skyblockbuilder:skyblock";
+          extra-options.difficulty = "peaceful";
+          extra-options.gamemode = "survival";
+        };
+      };
     };
   };
 }

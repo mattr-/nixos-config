@@ -71,6 +71,10 @@
                     mountOptions = [ "noatime" ];
                     mountpoint = "/var/lib/mc-atm10tts";
                   };
+		  "/mc-start-theta-1" = {
+                    mountOptions = [ "noatime" ];
+                    mountpoint = "/var/lib/mc-start-theta-1";
+		  };
                 };
               };
             };
